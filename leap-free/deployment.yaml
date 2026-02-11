@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: leap-free
+  labels:
+    app: leap-free
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: leap-free
+  template:
+    metadata:
+      labels:
+        app: leap-free
+    spec:
+      containers:
+      - name: leap-free
+        image: ekelejay/leap-initiative-free:latest
+        ports:
+        - containerPort: 3001
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "256Mi"
+            cpu: "200m"

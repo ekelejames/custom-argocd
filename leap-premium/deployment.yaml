@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: leap-premium
+  labels:
+    app: leap-premium
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: leap-premium
+  template:
+    metadata:
+      labels:
+        app: leap-premium
+    spec:
+      containers:
+      - name: leap-premium
+        image: ekelejay/leap-initiative-premium:latest
+        ports:
+        - containerPort: 3000
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "256Mi"
+            cpu: "200m"
