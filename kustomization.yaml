@@ -6,3 +6,5 @@ resources:
   - leap-free/service.yaml
   - leap-premium/deployment.yaml
   - leap-premium/service.yaml
+  - leap-new/deployment.yaml
+  - leap-new/service.yaml

@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: leap-new
+  labels:
+    app: leap-new
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: leap-new
+  template:
+    metadata:
+      labels:
+        app: leap-new
+    spec:
+      containers:
+      - name: leap-new
+        image: ekelejay/leap-initiative:latest
+        ports:
+        - containerPort: 3000
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "256Mi"
+            cpu: "200m"
